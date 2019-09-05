@@ -1,13 +1,13 @@
 {
-  "name": "zb-microsrever",
+  "name": "{{name}}",
   "version": "1.0.0",
-  "description": "",
+  "description": "{{description}}",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "weiyongshu",
+  "author": "{{author}}",
   "license": "ISC",
   "dependencies": {
     "@grpc/proto-loader": "^0.5.1",
