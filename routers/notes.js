@@ -3,7 +3,6 @@ const Models = require('../models')
 const Cache = require('../libs/cache')
 
 async function listNotes(ctx) {
-    // Log.debug('listNotes')
     var ret = await Models.Notes.find({})
     Log.debug('listNotes', ret.length)
     var notes = ret.map(o => {

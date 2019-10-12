@@ -1,5 +1,12 @@
+const Config = require('../../config')
 
-var redis = require('./redis')
+let redis
+
+if (Config.cache == 'redis') {
+    redis = require('./redis')
+} else {
+    redis = require('./memory')
+}
 
 module.exports = {
     get: function(key, cb) {
@@ -15,5 +22,11 @@ module.exports = {
     },
     clear: function(cb) {
         return redis.clear(cb)
+    },
+    end: function() {
+        return new Promise((resolve, reject) => {
+            redis.end(true);
+            resolve(true);
+        })
     }
 }

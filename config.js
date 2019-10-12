@@ -1,12 +1,24 @@
-
 const Config = {
-    port: 9090,
-    mongodb: 'mongodb://127.0.0.1/zbms',
-    redis: {
-        host: '172.17.0.3',
-        port: 6379,
-        password: ''
-    }
+    dev: {
+        port: 9090,
+        mongodb: 'mongodb://127.0.0.1/zbms-test',
+        // cache: 'redis',
+        redis: {
+            host: '127.0.0.1',
+            port: 6379,
+            password: ''
+        }
+    },
+    production: {
+        port: 9090,
+        mongodb: 'mongodb://127.0.0.1/zbms',
+        cache: 'redis',
+        redis: {
+            host: '127.0.0.1',
+            port: 6379,
+            password: ''
+        }
+    }    
 }
 
-module.exports = Config
+module.exports = process.env.NODE_ENV == 'production' ? Config.production : Config.dev
