@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
+    "coverage": "nyc npm run test",
     "start": "node app.js"
   },
   "author": "weiyongshu",
@@ -18,5 +19,10 @@
     "mali": "^0.18.0",
     "mongoose": "^5.6.11",
     "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
+    "nyc": "^14.1.1"
   }
 }

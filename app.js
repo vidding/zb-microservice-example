@@ -4,6 +4,7 @@ const Config = require('./config')
 const Routers = require('./routers')
 const log = require('./log')
 
+let app
 
 // 初始化服务
 function initService() {
@@ -13,20 +14,23 @@ function initService() {
     })
 }
 
-function main() {
+async function main() {
     try {
         log.info('Service is starting...')
         await initService();
 
-        const app = new Mali('echo.proto')
+        app = new Mali('./proto/echo.proto')
+
         app.use(logger({
             timestamp: logger.isoTime
         }))
+        
         app.use(Routers)
+
         app.on('error', (err, ctx) => {
             log.error('server error for call %s of type %s', ctx.name, ctx.type, err);
         })
-        app.start('0.0.0.0:' + Config.port)
+
         let HOSTPORT = '0.0.0.0:' + Config.port
         app.start(HOSTPORT)
         log.info(`Service running @ ${HOSTPORT}`)

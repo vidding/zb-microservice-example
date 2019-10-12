@@ -8,3 +8,10 @@ use mali(NodeJS + gPPC), MongoDB, Log4js, Redis
 npm install
 npm start
 ```
+
+# test
+
+```
+npm test
+npm run coverage
+```

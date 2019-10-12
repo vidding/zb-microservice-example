@@ -1,5 +1,4 @@
 const Log = require('../log')
-const async = require('async')
 const JSONStream = require('JSONStream')
 const fs = require('fs')
 
@@ -22,7 +21,7 @@ const myTransform = new Transform({
 async function echo(ctx) {
     Log.debug('echo', ctx.req)
     ctx.res = {
-        message: 'Helo '.concat(ctx.req.message)
+        message: 'Hello '.concat(ctx.req.message)
     }
 }
 

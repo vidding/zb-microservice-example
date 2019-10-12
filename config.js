@@ -2,7 +2,7 @@ const Config = {
     dev: {
         port: 9090,
         mongodb: 'mongodb://127.0.0.1/zbms-test',
-        // cache: 'redis',
+        // cache: 'redis', //use momery
         redis: {
             host: '127.0.0.1',
             port: 6379,
