@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const Config = require('../config')
 const Log = require('../log')
 
-mongoose.connect(Config.mongodb,  {useNewUrlParser: true})
+mongoose.connect(Config.mongodb,  {useNewUrlParser: true, useUnifiedTopology: true})
 var db = mongoose.connection;
 db.on('error',  function(err) {
     Log.error('mongoose error', err)
